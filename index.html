@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Identity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --bg: #030712;
+            --card-bg: rgba(17, 24, 39, 0.8);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+
+        body {
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(79, 172, 254, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 242, 254, 0.15) 0px, transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .main-wrapper {
+            display: flex;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            max-width: 850px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+        }
+
+        /* الجزء الأيمن (الصورة والاسم) */
+        .profile-side {
+            flex: 1;
+            background: linear-gradient(180deg, rgba(79, 172, 254, 0.1), transparent);
+            padding: 40px;
+            text-align: center;
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .profile-img {
+            width: 180px; height: 180px;
+            border-radius: 30px; /* شكل مربع بحواف دائرية فخم */
+            object-fit: cover;
+            transform: rotate(-3deg);
+            border: 5px solid var(--primary);
+            transition: 0.5s;
+            box-shadow: 0 20px 40px rgba(0, 242, 254, 0.2);
+        }
+
+        .profile-img:hover { transform: rotate(0deg) scale(1.05); }
+
+        /* الجزء الأيسر (الروابط والمعلومات) */
+        .content-side {
+            flex: 1.5;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo { width: 45px; margin-bottom: 20px; filter: drop-shadow(0 0 10px var(--primary)); }
+
+        h1 { font-weight: 900; font-size: 2.2rem; margin-bottom: 5px; line-height: 1.2; }
+        .study-label { color: var(--primary); font-weight: 300; margin-bottom: 30px; letter-spacing: 1px; }
+
+        .links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+        .btn {
+            padding: 15px; border-radius: 18px; text-decoration: none;
+            color: white; font-weight: bold; text-align: center;
+            transition: 0.4s; font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .btn:hover { background: white; color: black; transform: translateY(-5px); }
+        .btn.whatsapp:hover { background: #25D366; color: white; border-color: #25D366; }
+        .btn.facebook:hover { background: #1877F2; color: white; border-color: #1877F2; }
+        .btn.call { grid-column: span 2; background: var(--primary); color: #000; border: none; }
+
+        .skills-bar { margin-top: 35px; }
+        .skill-chip {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 5px 15px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.05);
+            margin: 3px;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+        }
+
+        /* للموبايل */
+        @media (max-width: 768px) {
+            .main-wrapper { flex-direction: column; }
+            .profile-side { padding: 30px; }
+            .content-side { padding: 30px; text-align: center; }
+            .links-grid { grid-template-columns: 1fr; }
+            .btn.call { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="profile-side">
+            <img src="my-photo.jpg" alt="Me" class="profile-img">
+        </div>
+
+        <div class="content-side">
+            <img src="logo.png" alt="Logo" class="logo">
+            <h1>اسمك بالكامل</h1>
+            <p class="study-label">🎓 بدرس [تخصصك هنا]</p>
+
+            <div class="links-grid">
+                <a href="https://wa.me/20123456789" class="btn whatsapp">WHATSAPP</a>
+                <a href="https://facebook.com/yourlink" class="btn facebook">FACEBOOK</a>
+                <a href="tel:+20123456789" class="btn call">CONTACT ME NOW</a>
+            </div>
+
+            <div class="skills-bar">
+                <span class="skill-chip">UI/UX</span>
+                <span class="skill-chip">DEVELOPMENT</span>
+                <span class="skill-chip">CREATIVE THINKING</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
